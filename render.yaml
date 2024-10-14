@@ -5,8 +5,8 @@ services:
     plan: free
     buildCommand: |
       npm install --prefix server
-      npm install --prefix client
-      npm run build --prefix client
+      npm install --prefix client/client
+      npm run build --prefix client/client
     startCommand: node server/index.js
     rootDir: .
     envVars:
