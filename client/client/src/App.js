@@ -7,6 +7,8 @@ function App() {
     const [recipes, setRecipes] = useState([]);
 
     const fetchRecipes = async () => {
+        if (!ingredients) return; // Avoid fetching if no ingredients are provided
+
         const response = await fetch(
             `http://localhost:5000/api/recipes?ingredients=${ingredients}`
         );
@@ -29,7 +31,7 @@ function App() {
                 onChange={(e) => setIngredients(e.target.value)}
             />
             <button onClick={fetchRecipes}>Find Recipes</button>
-            <button onClick={clearInputs}>Clear</button> {/* Clear button */}
+            <button onClick={clearInputs}>Clear</button>
             <RecipeList recipes={recipes} />
         </div>
     );
