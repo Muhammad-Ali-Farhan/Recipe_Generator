@@ -11,6 +11,6 @@ services:
     rootDir: .
     envVars:
       - key: EDAMAM_APP_ID
-        value: your_edamam_app_id_here  # Replace with your actual value
+        value: 46e406d6
       - key: EDAMAM_APP_KEY
-        value: your_edamam_app_key_here  # Replace with your actual value
+        value: 2316643b612dbc79d52eb92052333b92
