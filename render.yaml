@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: recipe-generator
+    env: node
+    plan: free
+    buildCommand: |
+      npm install --prefix server
+      npm install --prefix client
+      npm run build --prefix client
+    startCommand: node server/index.js
+    rootDir: .
+    envVars:
+      - key: EDAMAM_APP_ID
+        value: your_edamam_app_id_here  # Replace with your actual value
+      - key: EDAMAM_APP_KEY
+        value: your_edamam_app_key_here  # Replace with your actual value
