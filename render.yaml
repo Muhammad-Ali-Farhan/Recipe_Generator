@@ -3,10 +3,7 @@ services:
     name: recipe-generator
     env: node
     plan: free
-    buildCommand: |
-      npm install --prefix server
-      npm install --prefix client/client
-      npm run build --prefix client/client
+    buildCommand: npm install --prefix server && npm install --prefix client/client && npm run build --prefix client/client
     startCommand: node server/index.js
     rootDir: .
     envVars:
