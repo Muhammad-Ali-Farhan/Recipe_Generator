@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import RecipeList from "./components/RecipeList";
-import './styles.css'; // Ensure this path is correct
+import './styles.css'; 
 
 function App() {
     const [ingredients, setIngredients] = useState("");
     const [recipes, setRecipes] = useState([]);
 
     const fetchRecipes = async () => {
-        if (!ingredients) return; // Avoid fetching if no ingredients are provided
-
+        const baseURL = process.env.NODE_ENV === 'production'
+            ? window.location.origin 
+            : 'http://localhost:5000'; 
+    
         const response = await fetch(
-            `http://localhost:5000/api/recipes?ingredients=${ingredients}`
+            `${baseURL}/api/recipes?ingredients=${ingredients}`
         );
+    
         const data = await response.json();
         setRecipes(data);
     };
